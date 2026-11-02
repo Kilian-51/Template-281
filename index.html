@@ -3,91 +3,131 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>YourStartup</title>
-  <meta name="description" content="A student startup prototype for BSAD 281.">
+  <title>Fern &amp; Found</title>
+  <meta name="description" content="A calmer way to keep your houseplants happy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- =========================================================
-       HEADER: logo text + navigation.
-       Each link points to a "view" further down the page (#home, #explore, #about).
-       ========================================================= -->
   <header class="site-header">
-    <a class="brand" href="#home" id="brand-name">YourStartup</a>
-    <nav aria-label="Main">
-      <a href="#home">Home</a>
-      <a href="#explore">Explore</a>
-      <a href="#about">About</a>
+    <a class="brand" href="#home" aria-label="Fern and Found home">
+      <span class="brand-mark" aria-hidden="true">✳</span>
+      <span>fern<span class="brand-amp"> &amp; </span>found</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#home" aria-current="page">Overview</a>
+      <a href="#explore">My plants</a>
+      <a href="#about">Care notes</a>
     </nav>
+    <div class="header-date" id="today-label"></div>
   </header>
 
   <main>
-
-    <!-- =======================================================
-         VIEW 1: HOME — what you do, for whom, and why it matters.
-         ======================================================= -->
     <section id="home" data-view>
-      <div class="hero">
-        <p class="eyebrow">Prototype</p>
-        <h1 id="tagline">One sentence that says what your startup does.</h1>
-        <p class="lead" id="pitch">
-          Who is your customer, what problem do they have, and why is your
-          solution better than what they use today?
-        </p>
-        <a class="button" href="#explore">See it in action</a>
+      <div class="welcome-row">
+        <div>
+          <p class="eyebrow">A GOOD MORNING TO YOU AND YOURS</p>
+          <h1>Grow where<br>you <em>are.</em></h1>
+          <p class="lead" id="pitch">A gentle nudge for the plants that make your place feel like home.</p>
+        </div>
+        <a class="button button-lime" href="#explore"><span aria-hidden="true">＋</span> Add a plant</a>
       </div>
 
-      <div class="steps">
-        <div class="card">
-          <h2>1. Step one</h2>
-          <p>Describe the first thing a customer does.</p>
-        </div>
-        <div class="card">
-          <h2>2. Step two</h2>
-          <p>Describe what happens next.</p>
-        </div>
-        <div class="card">
-          <h2>3. Step three</h2>
-          <p>Describe the result the customer gets.</p>
-        </div>
+      <div class="overview-grid">
+        <section class="garden-feature" aria-label="A little garden inspiration">
+          <img src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&amp;fit=crop&amp;w=1400&amp;q=85" alt="Sunlit green leaves of a houseplant">
+          <div class="feature-shade"></div>
+          <div class="feature-copy">
+            <span class="feature-kicker">A NOTE FROM THE SUNROOM</span>
+            <h2>Small rituals.<br>Lots of life.</h2>
+            <a href="#about">A few care notes <span aria-hidden="true">↗</span></a>
+          </div>
+          <span class="feature-stamp" aria-hidden="true">GROW<br>AT YOUR<br>OWN PACE</span>
+        </section>
+
+        <aside class="today-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">YOUR DAILY RITUAL</p>
+              <h2>On the watering list</h2>
+            </div>
+            <span class="drop-icon" aria-hidden="true">◒</span>
+          </div>
+          <p class="panel-intro" id="watering-summary">A few plants could use a drink today.</p>
+          <div class="watering-list" id="watering-list"></div>
+          <a class="text-link" href="#explore">See all your plants <span aria-hidden="true">→</span></a>
+        </aside>
       </div>
+
+      <section class="collection-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">A FEW FAVORITES</p>
+            <h2>Growing at home</h2>
+          </div>
+          <a class="text-link" href="#explore">Open plant shelf <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="plant-grid compact-grid" id="favorite-grid"></div>
+      </section>
     </section>
 
-    <!-- =======================================================
-         VIEW 2: EXPLORE — a list built from the fake data in data.js.
-         ======================================================= -->
     <section id="explore" data-view hidden>
-      <h1>Explore</h1>
-      <p class="muted">These examples are fake. They come from <code>data.js</code>.</p>
-
-      <label class="search">
-        <span>Search</span>
-        <input type="search" id="search-box" placeholder="Type to filter…">
-      </label>
-
-      <p class="muted" id="saved-count"></p>
-      <div class="grid" id="listing-grid"></div>
-      <p class="empty" id="empty-message" hidden>Nothing matches your search.</p>
+      <div class="page-heading">
+        <div>
+          <p class="eyebrow">YOUR COLLECTION</p>
+          <h1>My plants<span class="heading-period">.</span></h1>
+          <p class="lead">Every leaf has its own little rhythm.</p>
+        </div>
+        <button class="button" type="button" id="show-add-form"><span aria-hidden="true">＋</span> Add a plant</button>
+      </div>
+      <form class="add-plant-form" id="add-plant-form" hidden>
+        <label>Plant name<input name="name" required maxlength="36" placeholder="e.g. Sunday morning"></label>
+        <label>Plant type<input name="type" required maxlength="36" placeholder="e.g. Monstera"></label>
+        <label>Water every<input name="interval" type="number" min="1" max="60" value="7" required><span class="input-suffix">days</span></label>
+        <button class="button" type="submit">Add to my shelf</button>
+      </form>
+      <div class="plant-toolbar">
+        <label class="search"><span class="search-icon" aria-hidden="true">⌕</span><input type="search" id="search-box" placeholder="Find a plant" aria-label="Search plants"></label>
+        <div class="filter-group" role="group" aria-label="Filter plants">
+          <button type="button" class="filter-button is-active" data-filter="all" aria-pressed="true">All plants</button>
+          <button type="button" class="filter-button" data-filter="due" aria-pressed="false">Needs water</button>
+          <button type="button" class="filter-button" data-filter="happy" aria-pressed="false">Doing well</button>
+        </div>
+      </div>
+      <p class="result-count" id="result-count"></p>
+      <div class="plant-grid" id="plant-grid"></div>
+      <p class="empty" id="empty-message" hidden>No plants found. Try another search or add one to your shelf.</p>
     </section>
 
-    <!-- =======================================================
-         VIEW 3: ABOUT — your team and your story.
-         ======================================================= -->
     <section id="about" data-view hidden>
-      <h1>About us</h1>
-      <p>Tell the story of why your team started this company.</p>
-      <p>Use first names only, or no names at all — this site is public.</p>
+      <div class="page-heading notes-heading">
+        <div>
+          <p class="eyebrow">A FEW THINGS TO REMEMBER</p>
+          <h1>Care notes<span class="heading-period">.</span></h1>
+          <p class="lead">Good plant care is mostly paying attention.</p>
+        </div>
+        <span class="notes-illustration" aria-hidden="true">✳</span>
+      </div>
+      <div class="care-layout">
+        <article class="care-feature">
+          <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Potted green plant resting in a bright room">
+          <div><p class="eyebrow">START HERE</p><h2>Get to know<br>your light.</h2><p>Most houseplants are happiest near a bright window, just out of the harshest afternoon sun.</p></div>
+        </article>
+        <div class="care-tips">
+          <article class="tip-row"><span class="tip-number">01</span><div><h2>Check the soil first</h2><p>Touch the top inch. If it still feels damp, give it another day or two.</p></div></article>
+          <article class="tip-row"><span class="tip-number">02</span><div><h2>Give it a proper drink</h2><p>Water slowly until a little drains from the bottom, then empty the saucer.</p></div></article>
+          <article class="tip-row"><span class="tip-number">03</span><div><h2>Look for the little signs</h2><p>Drooping leaves, dry edges, and pale patches can tell you when something needs to change.</p></div></article>
+        </div>
+      </div>
     </section>
-
   </main>
 
-  <!-- Keep this footer. Your site must say it is a student project. -->
   <footer class="site-footer">
     <p>Student prototype for BSAD 281 at St. Francis Xavier University. Not a real company — all data is fictional.</p>
   </footer>
 
-  <!-- Scripts load in this order: data first, then the code that uses it. -->
   <script src="data.js"></script>
   <script src="app.js"></script>
 </body>

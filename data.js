@@ -1,26 +1,13 @@
-// ============================================================
-// data.js — ALL the fake data for your prototype lives here.
-//
-// There is no database. Everything below is made up, and that is
-// on purpose: never put real people's names, emails, phone numbers
-// or addresses in this file.
-//
-// To change what appears on the Explore page, edit LISTINGS.
-// Each item is one card. Keep the same fields (id, name, category,
-// description) or ask Copilot to add new ones everywhere they're needed.
-// ============================================================
-
 const STARTUP = {
-  name: "YourStartup",
-  tagline: "One sentence that says what your startup does.",
-  pitch: "Who is your customer, what problem do they have, and why is your solution better than what they use today?"
+  name: "Fern & Found",
+  tagline: "A little care goes a long way.",
+  pitch: "A gentle nudge for the plants that make your place feel like home."
 };
 
-const LISTINGS = [
-  { id: 1, name: "Sample listing A", category: "Category 1", description: "A short description of this item." },
-  { id: 2, name: "Sample listing B", category: "Category 2", description: "A short description of this item." },
-  { id: 3, name: "Sample listing C", category: "Category 1", description: "A short description of this item." },
-  { id: 4, name: "Sample listing D", category: "Category 3", description: "A short description of this item." },
-  { id: 5, name: "Sample listing E", category: "Category 2", description: "A short description of this item." },
-  { id: 6, name: "Sample listing F", category: "Category 3", description: "A short description of this item." }
+const PLANTS = [
+  { id: "monstera", name: "Mona", type: "Monstera deliciosa", interval: 7, daysAgo: 8, image: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?auto=format&fit=crop&w=700&q=80", color: "sage" },
+  { id: "pothos", name: "Pip", type: "Golden pothos", interval: 6, daysAgo: 3, image: "https://images.unsplash.com/photo-1509423350716-97f2360af2e4?auto=format&fit=crop&w=700&q=80", color: "lime" },
+  { id: "ficus", name: "Figgy", type: "Fiddle-leaf fig", interval: 9, daysAgo: 10, image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=700&q=80", color: "peach" },
+  { id: "sansevieria", name: "Sage", type: "Snake plant", interval: 14, daysAgo: 5, image: "https://images.unsplash.com/photo-1593691509543-c55fb32e5cee?auto=format&fit=crop&w=700&q=80", color: "blue" },
+  { id: "zz", name: "Zuzu", type: "ZZ plant", interval: 12, daysAgo: 13, image: "https://images.unsplash.com/photo-1597055181300-e3633a917c7b?auto=format&fit=crop&w=700&q=80", color: "pink" }
 ];
